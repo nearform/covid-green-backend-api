@@ -914,8 +914,8 @@
 							"script": {
 								"id": "ef4c336b-6dff-4dae-9e06-a754eb1e4d46",
 								"exec": [
-									"pm.test('Status code is 204', () => {",
-									"    pm.response.to.have.status(204)",
+									"pm.test('Status code is 200', () => {",
+									"    pm.response.to.have.status(200)",
 									"})"
 								],
 								"type": "text/javascript"
@@ -1177,8 +1177,8 @@
 							"script": {
 								"id": "494d3072-bb45-421f-a0f5-35aae24959b0",
 								"exec": [
-									"pm.test('Status code is 204', () => {",
-									"    pm.response.to.have.status(204)",
+									"pm.test('Status code is 200', () => {",
+									"    pm.response.to.have.status(200)",
 									"})"
 								],
 								"type": "text/javascript"
