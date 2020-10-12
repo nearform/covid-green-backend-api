@@ -1,8 +1,9 @@
+DROP TABLE email_addresses;
 CREATE TABLE IF NOT EXISTS email_addresses (
   id UUID PRIMARY KEY NOT NULL DEFAULT GEN_RANDOM_UUID(),
   created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
   email_address TEXT NOT NULL,
-  nonce TEXT NULL
+  verification_code TEXT NULL
 );
 
 CREATE TABLE IF NOT EXISTS risky_venues (
