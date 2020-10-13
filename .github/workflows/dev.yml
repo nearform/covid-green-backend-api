@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - nearform
+      - qr-test
 
 jobs:
   deploy-nfcs:
