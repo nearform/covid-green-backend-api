@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "41105b40-c4b4-4073-8b9e-e6a7fde47a4b",
+		"_postman_id": "a3013d32-004c-4911-a460-cb9e4ebfb5ad",
 		"name": "Contact Tracing",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1469,6 +1469,23 @@
 							"path": [
 								"register"
 							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "QR Code",
+			"item": [
+				{
+					"name": "Submit details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
 						}
 					},
 					"response": []
