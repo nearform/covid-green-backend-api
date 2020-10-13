@@ -25,3 +25,16 @@ CREATE TABLE IF NOT EXISTS qr_code (
   contact_email TEXT NOT NULL,
   contact_phone TEXT NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS venue_types (
+  id UUID PRIMARY KEY NOT NULL DEFAULT GEN_RANDOM_UUID(),
+  name TEXT NOT NULL,
+  details TEXT NOT NULL
+);
+
+INSERT INTO venue_types (name, details)
+VALUES
+  ('Accommodation', 'For example, hotels, bed & breakfast accommodation and campsites'),
+  ('Medical facility', 'For example, hospitals, GP practices and veterinary clinics'),
+  ('Non-residential institutions', 'For example, community ceonters, libraries, crematoria and funeral homes'),
+  ('Personal care', 'For example, hair salons and barbers, spas and beauty salons');
