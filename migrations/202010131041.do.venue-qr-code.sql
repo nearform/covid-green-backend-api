@@ -26,8 +26,7 @@ CREATE TABLE IF NOT EXISTS qr_code (
   venue_name TEXT NOT NULL,
   venue_address TEXT NOT NULL,
   contact_email TEXT NOT NULL,
-  contact_phone TEXT NOT NULL,
-  FOREIGN KEY(venue_type) REFERENCES venue_types(id)
+  contact_phone TEXT NOT NULL
 );
 
 DELETE FROM venue_types;
