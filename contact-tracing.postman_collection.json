@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d8828e04-1417-4ac5-8b0d-fadde7649f49",
+		"_postman_id": "f7d38255-dd26-4eaa-8f02-9813d087d118",
 		"name": "Contact Tracing",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,7 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "61aff2ae-3931-4a97-822f-30e93dcfb660",
+								"id": "f9ac0cc0-0624-4b49-a79c-5e6607e0fe0b",
 								"exec": [
 									"pm.test('Status code is 200', () => {\r",
 									"  pm.response.to.have.status(200)\r",
@@ -45,7 +45,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4d0f6135-8568-4aca-91c6-d008d889a245",
+								"id": "42116d28-40e3-468b-87f5-ce6d450d169e",
 								"exec": [
 									"pm.test('Status code is 200', () => {\r",
 									"  pm.response.to.have.status(200)\r",
@@ -82,7 +82,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5edd8aaf-b3e2-4e2c-ac46-0321a94c6991",
+								"id": "3e0c3991-5c78-4136-8630-6b946139e7d7",
 								"exec": [
 									"const schema = {",
 									"  type: 'object',",
@@ -137,7 +137,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c9d63cc5-8e75-4fbe-b9d3-439d79044100",
+								"id": "8f51b7e9-a210-4736-993c-b91db5f4f482",
 								"exec": [
 									"const schema = {",
 									"  type: 'object',",
@@ -216,7 +216,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "1c43c0c6-860b-446a-8961-c59c04820936",
+						"id": "69a7994f-c8b8-458b-849a-33d9d0b90668",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -226,7 +226,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1a8b9f60-317f-43bc-a853-cef0a36b7f9f",
+						"id": "1cad0220-584d-499d-80be-e95196ee46bd",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -245,7 +245,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "50aca5d7-be6e-4150-ba50-1321adffd795",
+								"id": "f1d1d2d6-2a04-47e7-a24d-270b1d66bf03",
 								"exec": [
 									"const schema = {",
 									"  type: 'object',",
@@ -313,7 +313,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1ea98cd6-4c42-4d00-a65a-3aaf34c9f97d",
+								"id": "877a7187-c653-4c19-ba71-e33676fa2f4f",
 								"exec": [
 									"const schema = {",
 									"    type: 'object',",
@@ -365,7 +365,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6f489590-452c-4a6f-bc82-1a38a2b546f2",
+								"id": "7b59e098-9480-4c10-b451-6e9773c950c9",
 								"exec": [
 									"const schema = {",
 									"    type: 'object',",
@@ -415,7 +415,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "27a2ee71-4a53-4736-a803-b38b6894d210",
+								"id": "75bdd26b-0b50-4aa4-88b1-05b0c5bb6b24",
 								"exec": [
 									"const schema = {",
 									"    type: 'object',",
@@ -468,7 +468,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8503a00b-1bc6-438e-8a7a-4df1d7e7e37b",
+								"id": "46f3a666-e08b-421b-bf54-3b44e54e730f",
 								"exec": [
 									"const schema = {",
 									"  type: 'object',",
@@ -708,7 +708,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "f068035a-dbb7-42e6-b335-4a590d6a41bd",
+								"id": "a967b987-d460-4cfa-9577-78873acb0bb9",
 								"exec": [
 									""
 								],
@@ -718,7 +718,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "177539e5-8e2f-42bb-a95f-12f42d307b55",
+								"id": "e38f45f0-72f1-4e4d-a90b-f9ef66425d96",
 								"exec": [
 									"pm.test('Status code is 204', () => {",
 									"    pm.response.to.have.status(204)",
@@ -764,7 +764,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "10a4e40c-1e65-4eb4-84b9-6fed32e5fe89",
+								"id": "1ba8ffa7-35b5-468c-8d31-f29ba44044f2",
 								"exec": [
 									"const schema = {",
 									"  type: 'object',",
@@ -849,7 +849,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "163cacd3-5702-4b1d-8063-1792dc79d76b",
+								"id": "f7c91cf7-0907-4c62-9a76-60185cb0e20a",
 								"exec": [
 									"const schema = {",
 									"  type: 'object',",
@@ -912,7 +912,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ef4c336b-6dff-4dae-9e06-a754eb1e4d46",
+								"id": "342267d1-3f51-4ac7-b15a-4ff3d04a1bd9",
 								"exec": [
 									"pm.test('Status code is 204', () => {",
 									"    pm.response.to.have.status(204)",
@@ -965,7 +965,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "22aaaab0-6978-473b-a343-5dec6d8cd434",
+								"id": "86ceda87-6782-46d8-a129-f5292f43b418",
 								"exec": [
 									"const schema = {",
 									"  type: 'object',",
@@ -1046,7 +1046,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c4ac3c9a-e5a0-403c-ba2a-dab010aacca8",
+								"id": "018156b6-c914-4cb9-ab87-cfae0e8dd459",
 								"exec": [
 									"const schema = {\r",
 									"  type: 'object',\r",
@@ -1118,7 +1118,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6d666a66-08e3-4908-ad92-db826498f5fb",
+								"id": "4297b6a8-1fe5-4644-863f-d5c7ff456a95",
 								"exec": [
 									"const schema = {\r",
 									"  type: 'object',\r",
@@ -1182,7 +1182,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "494d3072-bb45-421f-a0f5-35aae24959b0",
+								"id": "20e4f4f6-c6c8-410b-913f-3affc2734b3d",
 								"exec": [
 									"pm.test('Status code is 200', () => {",
 									"    pm.response.to.have.status(200)",
@@ -1234,7 +1234,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "27241370-7005-43c2-9e6f-c0d059d534f3",
+								"id": "49c9402c-c151-4a3c-af09-4613e8eadb3e",
 								"exec": [
 									"const schema = {",
 									"  type: 'array',",
@@ -1300,7 +1300,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2b9bb4a6-73e2-4724-a39a-564a7de60eef",
+								"id": "d1ff0e25-de06-4b00-a3a0-10ae1bafb10c",
 								"exec": [
 									""
 								],
@@ -1493,7 +1493,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ccab87f3-5510-4e63-bf96-5e8856bdbc16",
+								"id": "7ec837ee-b4b6-475a-bdc4-6e15fe0b5401",
 								"exec": [
 									"pm.test('Status code is 204', () => {",
 									"    pm.response.to.have.status(204)",
@@ -1637,6 +1637,105 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get all venues",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/venues",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"venues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Flag venue as risky",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"\",\n    \"start\": \"\",\n    \"end\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/venues/risky",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"venues",
+								"risky"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make venue non-risky",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/venues/risky",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"venues",
+								"risky"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update risky venue window",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"\",\n    \"start\": \"\",\n    \"end\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/venues/risky",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"venues",
+								"risky"
+							]
+						},
+						"description": "If either start or end aren't changing you don't need pass them in, the API will use whatever is already stored."
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -1656,7 +1755,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "1c68404e-d546-4563-9399-025d31a30310",
+				"id": "cadca9e4-8ec8-4df8-a7ce-7ea1415a3be0",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1666,7 +1765,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "96023cca-231c-4d02-80af-9bbc86e480bf",
+				"id": "2eeab280-2c8e-4d0f-9d9d-4919db3634c1",
 				"type": "text/javascript",
 				"exec": [
 					""
