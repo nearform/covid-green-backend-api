@@ -1475,6 +1475,110 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Notices",
+			"item": [
+				{
+					"name": "Create notice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "60a14f30-e59d-4baf-826d-5b35696da198",
+								"exec": [
+									"const schema = {",
+									"  type: 'object',",
+									"  additionalProperties: false,",
+									"  required: [",
+									"    'key'",
+									"  ],",
+									"  properties: {",
+									"    key: {",
+									"      type: 'string'",
+									"    }",
+									"  }",
+									"}",
+									"",
+									"const json = pm.response.json()",
+									"",
+									"pm.test('Status code is 200', () => {",
+									"  pm.response.to.have.status(200)",
+									"})",
+									"",
+									"pm.test('Schema is valid', () => {",
+									"  pm.expect(tv4.validate(json, schema)).to.be.true",
+									"})",
+									"",
+									"pm.environment.set('noticeKey', json.key.toString())"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/notices/create",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"notices",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send notice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9557f568-2f37-413f-bb5b-949d07dd4960",
+								"exec": [
+									"pm.test('Status code is 204', () => {",
+									"  pm.response.to.have.status(200)",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key\": \"{{noticeKey}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/notices/send",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"notices",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"auth": {
