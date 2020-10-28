@@ -1533,6 +1533,69 @@
 					"response": []
 				},
 				{
+					"name": "Verify Notice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ceb36f39-3ff9-4fcd-ba6a-e17a6656876a",
+								"exec": [
+									"const schema = {",
+									"  type: 'object',",
+									"  additionalProperties: false,",
+									"  required: [",
+									"    'ok'",
+									"  ],",
+									"  properties: {",
+									"    ok: {",
+									"      type: 'boolean'",
+									"    }",
+									"  }",
+									"}",
+									"",
+									"const json = pm.response.json()",
+									"",
+									"pm.test('Status code is 200', () => {",
+									"  pm.response.to.have.status(200)",
+									"})",
+									"",
+									"pm.test('Schema is valid', () => {",
+									"  pm.expect(tv4.validate(json, schema)).to.be.true",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key\": \"{{noticeKey}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/notices/verify",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"notices",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Send notice",
 					"event": [
 						{
@@ -1541,7 +1604,7 @@
 								"id": "9557f568-2f37-413f-bb5b-949d07dd4960",
 								"exec": [
 									"pm.test('Status code is 204', () => {",
-									"  pm.response.to.have.status(200)",
+									"  pm.response.to.have.status(204)",
 									"})",
 									""
 								],
@@ -1557,7 +1620,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"key\": \"{{noticeKey}}\"\n}",
+							"raw": "{\n    \"key\": \"{{noticeKey}}\",\n    \"senderFullName\": \"{{noticeFullName}}\",\n    \"senderName\": \"{{noticeSender}}\",\n    \"recipients\": [\"{{noticeRecipient}}\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
