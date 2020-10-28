@@ -132,6 +132,7 @@ All the endpoints in this service use varied sets of configuration settings and 
 | `ENABLE_CALLBACK` | `enable_callback` | Boolean indicating whether feature is turned on |
 | `ENABLE_CHECK_IN` | `enable_check_in` | Boolean indicating whether feature is turned on |
 | `ENABLE_METRICS` | `enable_metrics` | Boolean indicating whether feature is turned on |
+| `ENABLE_NOTICES` | `enable_notices` | Boolean indicating whether feature is turned on |
 | `LOG_LEVEL` | `log_level` | Standard logging level setting |
 | `CORS_ORIGIN` | `cors_origin` | Boolean indicating something about CORS |
 | `DB_HOST` | `db_host` | Connection host for database (writing/reading) |
@@ -147,6 +148,7 @@ All the endpoints in this service use varied sets of configuration settings and 
 | `UPLOAD_TOKEN_LIFETIME_MINS` | `upload_token_lifetime_mins` | ?? |
 | `VERIFY_RATE_LIMIT_SECS` | `security_verify_rate_limit_secs` | ?? |
 | `CALLBACK_QUEUE_URL` | `callback_url` | ?? |
+| `NOTICES_QUEUE_URL` | `notices_url` | ?? |
 | `ASSETS_BUCKET` | `s3_assets_bucket` | ?? |
 | `CALLBACK_RATE_LIMIT_SECS` | `security_callback_rate_limit_secs` | # of seconds required before a user can request another callback |
 | `CALLBACK_RATE_LIMIT_REQUEST_COUNT` | `security_callback_rate_limit_request_count` | # of callback requests allowed before rate limit goes into effect |
