@@ -1519,6 +1519,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"selfIsolationEndDate\": \"2020-11-06\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{api}}/notices/create",
 							"host": [
@@ -1620,7 +1629,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"key\": \"{{noticeKey}}\",\n    \"senderFullName\": \"{{noticeFullName}}\",\n    \"senderName\": \"{{noticeSender}}\",\n    \"recipients\": [\"{{noticeRecipient}}\"]\n}",
+							"raw": "{\n    \"key\": \"{{noticeKey}}\",\n    \"senderFullName\": \"{{noticeFullName}}\",\n    \"senderEmail\": \"{{noticeSender}}\",\n    \"sendToAdmin\": false,\n    \"recipients\": [\"{{noticeRecipient}}\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
