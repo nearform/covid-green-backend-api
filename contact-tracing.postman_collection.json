@@ -1491,6 +1491,59 @@
 									"  type: 'object',",
 									"  additionalProperties: false,",
 									"  required: [",
+									"    'nonce'",
+									"  ],",
+									"  properties: {",
+									"    nonce: {",
+									"      type: 'string'",
+									"    }",
+									"  }",
+									"}",
+									"",
+									"const json = pm.response.json()",
+									"",
+									"pm.test('Status code is 200', () => {",
+									"  pm.response.to.have.status(200)",
+									"})",
+									"",
+									"pm.test('Schema is valid', () => {",
+									"  pm.expect(tv4.validate(json, schema)).to.be.true",
+									"})",
+									"",
+									"pm.environment.set('noticesNonce', json.nonce)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/notices/create",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"notices",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify notice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "987fa3ff-71d4-4baf-9fc8-97f57c7e665d",
+								"exec": [
+									"const schema = {",
+									"  type: 'object',",
+									"  additionalProperties: false,",
+									"  required: [",
 									"    'key'",
 									"  ],",
 									"  properties: {",
@@ -1517,11 +1570,11 @@
 						}
 					],
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"selfIsolationEndDate\": \"2020-11-06\"\n}",
+							"raw": "{\n    \"platform\": \"noticesTest\",\n    \"nonce\": \"{{noticesNonce}}\",\n    \"deviceVerificationPayload\": \"{{noticesToken}}\",\n    \"selfIsolationEndDate\": \"2020-11-06\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1542,7 +1595,7 @@
 					"response": []
 				},
 				{
-					"name": "Verify Notice",
+					"name": "Validate Notice",
 					"event": [
 						{
 							"listen": "test",
@@ -1553,10 +1606,10 @@
 									"  type: 'object',",
 									"  additionalProperties: false,",
 									"  required: [",
-									"    'ok'",
+									"    'valid'",
 									"  ],",
 									"  properties: {",
-									"    ok: {",
+									"    valid: {",
 									"      type: 'boolean'",
 									"    }",
 									"  }",
@@ -1592,13 +1645,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{api}}/notices/verify",
+							"raw": "{{api}}/notices/validate",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
 								"notices",
-								"verify"
+								"validate"
 							]
 						}
 					},
