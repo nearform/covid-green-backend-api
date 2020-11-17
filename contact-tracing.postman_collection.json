@@ -1710,12 +1710,24 @@
 			"item": [
 				{
 					"name": "Submit email address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "549b9d98-8e1c-479c-9163-f8164c502445",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"emailAddress\": \"jack.murdoch@nearform.com\"\r\n}",
+							"raw": "{\r\n    \"emailAddress\": \"{{testEmail}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1741,7 +1753,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"emailAddress\": \"success@simulator.amazonses.com\",\r\n    \"verificationCode\": \"5663291\"\r\n}",
+							"raw": "{\r\n    \"emailAddress\": \"{{testEmail}}\",\r\n    \"verificationCode\": \"285279\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
