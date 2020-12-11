@@ -1475,6 +1475,466 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Notices",
+			"item": [
+				{
+					"name": "Create notice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "60a14f30-e59d-4baf-826d-5b35696da198",
+								"exec": [
+									"const schema = {",
+									"  type: 'object',",
+									"  additionalProperties: false,",
+									"  required: [",
+									"    'nonce'",
+									"  ],",
+									"  properties: {",
+									"    nonce: {",
+									"      type: 'string'",
+									"    }",
+									"  }",
+									"}",
+									"",
+									"const json = pm.response.json()",
+									"",
+									"pm.test('Status code is 200', () => {",
+									"  pm.response.to.have.status(200)",
+									"})",
+									"",
+									"pm.test('Schema is valid', () => {",
+									"  pm.expect(tv4.validate(json, schema)).to.be.true",
+									"})",
+									"",
+									"pm.environment.set('noticesNonce', json.nonce)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/notices/create",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"notices",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify notice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "987fa3ff-71d4-4baf-9fc8-97f57c7e665d",
+								"exec": [
+									"const schema = {",
+									"  type: 'object',",
+									"  additionalProperties: false,",
+									"  required: [",
+									"    'key'",
+									"  ],",
+									"  properties: {",
+									"    key: {",
+									"      type: 'string'",
+									"    }",
+									"  }",
+									"}",
+									"",
+									"const json = pm.response.json()",
+									"",
+									"pm.test('Status code is 200', () => {",
+									"  pm.response.to.have.status(200)",
+									"})",
+									"",
+									"pm.test('Schema is valid', () => {",
+									"  pm.expect(tv4.validate(json, schema)).to.be.true",
+									"})",
+									"",
+									"pm.environment.set('noticeKey', json.key.toString())"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"platform\": \"test\",\n    \"nonce\": \"{{noticesNonce}}\",\n    \"deviceVerificationPayload\": \"{{registerToken}}\",\n    \"selfIsolationEndDate\": \"2020-11-07\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/notices/create",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"notices",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Notice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ceb36f39-3ff9-4fcd-ba6a-e17a6656876a",
+								"exec": [
+									"const schema = {",
+									"  type: 'object',",
+									"  additionalProperties: false,",
+									"  required: [",
+									"    'valid'",
+									"  ],",
+									"  properties: {",
+									"    valid: {",
+									"      type: 'boolean'",
+									"    }",
+									"  }",
+									"}",
+									"",
+									"const json = pm.response.json()",
+									"",
+									"pm.test('Status code is 200', () => {",
+									"  pm.response.to.have.status(200)",
+									"})",
+									"",
+									"pm.test('Schema is valid', () => {",
+									"  pm.expect(tv4.validate(json, schema)).to.be.true",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key\": \"{{noticeKey}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/notices/validate",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"notices",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send notice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9557f568-2f37-413f-bb5b-949d07dd4960",
+								"exec": [
+									"pm.test('Status code is 204', () => {",
+									"  pm.response.to.have.status(204)",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key\": \"{{noticeKey}}\",\n    \"senderFullName\": \"{{noticeFullName}}\",\n    \"senderEmail\": \"{{noticeSender}}\",\n    \"sendToAdmin\": false,\n    \"recipients\": [\"{{noticeRecipient}}\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/notices/send",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"notices",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Venues",
+			"item": [
+				{
+					"name": "Submit email address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "549b9d98-8e1c-479c-9163-f8164c502445",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"emailAddress\": \"{{testEmail}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/email",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify email address",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"emailAddress\": \"{{testEmail}}\",\r\n    \"verificationCode\": \"285279\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/email",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create venue",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"receiverEmail\": \"eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbEFkZHJlc3MiOiJzdWNjZXNzQHNpbXVsYXRvci5hbWF6b25zZXMuY29tIiwiaWF0IjoxNjAyNTk5MjM0LCJleHAiOjE2MDI1OTk4MzQsInN1YiI6ImVtYWlsQWRkcmVzcyJ9.CDgzZZvGsNstXX2o_SxsIcCgklNR6C-XTCY-U6oCQrjq2-wJrBUpcL__Kkp5zZz7L733g63L4RTfhFgSsHZa_w\",\r\n    \"receiverFirstName\": \"Test\",\r\n    \"receiverSurname\": \"Venue\",\r\n    \"venueType\": \"d86c1ea9-a2c2-42e6-a1eb-3277df636e39\",\r\n    \"venueName\": \"Test Venue\",\r\n    \"venueAddress\": \"Test Address\",\r\n    \"contactEmail\": \"success@simulator.amazonses.com\",\r\n    \"contactPhone\": \"+441234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/venues",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"venues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get venue types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/venues/types",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"venues",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get risky venues",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/venues/risky",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"venues",
+								"risky"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all venues",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/venues",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"venues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Flag venue as risky",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"\",\n    \"start\": \"\",\n    \"end\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/venues/risky",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"venues",
+								"risky"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make venue non-risky",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/venues/risky",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"venues",
+								"risky"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update risky venue window",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"\",\n    \"start\": \"\",\n    \"end\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/venues/risky",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"venues",
+								"risky"
+							]
+						},
+						"description": "If either start or end aren't changing you don't need pass them in, the API will use whatever is already stored."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"auth": {
